@@ -37,3 +37,33 @@ $nky = "C:\.nky\Coding\bin"
 $mingw64 = "C:\mingw64\bin"
 $path = [Environment]::GetEnvironmentVariable($"Path", "Machine")
 [Environment]::SetEnvironmentVariable("Path", "$path;$nky;$mingw64", "Machine")
+
+$code = @'
+
+# By Tritium (https://github.com/night0721/Tritium)
+
+# Set up Starship
+Invoke-Expression (&starship init powershell)
+
+# Ascii Art
+$artFilePath = "C:\.nky\Coding\asc.txt"
+if (Test-Path $artFilePath) {
+    $artContent = Get-Content -Path $artFilePath -Raw
+    Write-Host "`n$artContent`n"
+}
+
+# Shortcuts
+function clist { choco list }
+
+function ofc { ssh ubuntu@129.146.30.73 -i C:\.nky\Coding\ofc.key }
+
+function c { cd C:\.nky\Coding\C\C\C }
+
+function ctt { irm https://christitus.com/win | iex }
+
+function reboot { shutdown /r /t 0 }
+
+function sophia { cd C:\.nky\Coding\Sophia;.\Sophia.ps1 }
+'@
+
+Add-Content -Path $PROFILE -Value $code
