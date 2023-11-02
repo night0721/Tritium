@@ -27,3 +27,7 @@ If you have installed the script, at the same PowerShell window, run this comman
 ```powershell
 .\Tritium.ps1
 ```
+
+## License
+
+Tritium is licensed under the GNU Public License v3.0. See [LICENSE](https://github.com/night0721/Tritium/blob/master/LICENSE) for more information.
